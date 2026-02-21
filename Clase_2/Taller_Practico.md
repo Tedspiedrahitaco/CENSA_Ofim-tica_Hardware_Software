@@ -15,12 +15,12 @@ Comprender la función visual de cada componente interno del PC y saber crear un
 Abre **Microsoft PowerPoint** y crea una presentación de máximo 4 diapositivas. Asegúrate de aplicar un **Diseño o Tema** visual atractivo desde la pestaña "Diseño".
 
 *   **Diapositiva 1 (Portada):** Título "Comprendiendo mi PC", tu nombre, y la fecha de hoy.
-*   **Diapositiva 2 (Conceptos Clave):** Usando viñetas o formas, explica brevemente con tus propias palabras qué hace la **Placa Base (Motherboard)**, el **Procesador (CPU)** y la **Fuente de Poder**. Incluye al menos una imagen descargada de internet de cualquiera de estos tres.
+*   **Diapositiva 2 (Conceptos Clave):** Usando viñetas o formas, explica brevemente con tus propias palabras qué hace la **Placa Base (Motherboard)**, el **Procesador (CPU)** y la **Fuente de Poder**. Incluye al menos una imagen descargada de internet o generada por IA de cualquiera de estos tres.
 
 ### 2. Presupuesto Básico (Uso de Excel)
-Abre **Microsoft Excel** para crear un presupuesto inicial para armar una computadora de oficina sencilla con un tope de **$3,700,000 COP**.
+Abre **Microsoft Excel** para crear un presupuesto inicial para armar una computadora que cumpla con los requisitos para laborar en tu tecnica con un tope de **$4,700,000 COP**.
 1. Crea una tabla sencilla con columnas: `Componente`, `Modelo Sugerido` y `Precio Aprox`.
-2. Incluye 4 filas de hardware: Procesador, Memoria RAM, Almacenamiento, y Placa Base. (Puedes inventar precios aproximados razonables, ej: RAM $80,000).
+2. Incluye 4 filas de hardware: Procesador, Memoria RAM, Almacenamiento, y Placa Base. (Puedes inventar precios aproximados razonables, ej: RAM $800,000).
 3. Usa la fórmula `=SUMA()` al final para calcular el Total.
 
 ### 3. Integración (Excel a PowerPoint)
