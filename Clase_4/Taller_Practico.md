@@ -1,76 +1,40 @@
-# 📝 Taller Práctico 4: Desarrollo de Soluciones Empresariales
+# 📝 Taller Práctico 4: Integración Total (Misión de la Oficina)
 
-**Nivel de Complejidad:** Profesional
-**Duración:** 120 Minutos
-**Herramientas:** Microsoft Excel (Habilitado para Macros) y Microsoft Word.
-
----
-
-## 🏢 Escenario: "Finanzas y Proyecciones LATAM"
-
-Usted es el Analista de Datos Senior de una financiera. La gerencia regional le entrega un archivo plano (`ventas_anuales.csv`) con **10,000 registros** de transacciones. Los datos están sucios y desorganizados.
-
-Se requiere una solución integral que automatice el reporte mensual y genere cartas de cobro a clientes morosos.
+**Nivel:** Integrador (Práctico y Cotidiano)
+**Duración:** 90 Minutos
+**Herramientas:** Microsoft Office (Word y Excel), Sistema Operativo, ZIP.
 
 ---
 
-## 📊 Fase 1: ETL y Modelado de Datos (Excel)
+## 🎯 Objetivo
+Resolver un problema administrativo real combinando todo lo aprendido: Selección de hardware, redacción de documentos empresariales y automatización básica en herramientas de oficina.
 
-1.  **Limpieza Avanzada:**
-    *   Los nombres de los clientes vienen con espacios erróneos (Ej: "  JUAN   PEREZ  "). Use funciones anidadas (`ESPACIOS`, `NOMPROPIO`) para corregirlos.
-    *   Genere un `Código Único` para cada transacción concatenando las primeras 3 letras de la Región, el Año y el ID numérico.
+## 🏢 El Escenario / Problema
+Eres el nuevo Asistente de Sistemas y Administración. La empresa cuenta con 3 computadores antiguos que están muy lentos y se "congelan" al abrir Excel. 
+Se te han asignado dos misiones para solucionar este problema y comunicarlo apropiadamente a los empleados.
 
-2.  **Lógica de Negocios (KPIs):**
-    *   Cree una columna "Estado de Cartera" usando una función **SI Anidada compleja**:
-        *   Si Días Mora > 90 -> "Jurídico"
-        *   Si Días Mora > 60 -> "Pre-Jurídico"
-        *   Si Días Mora > 30 -> "Riesgo Medio"
-        *   Si no -> "Al Día"
-    *   Cree una columna "Comisión Asesor" usando **BUSCARX** desde una tabla auxiliar de rangos de comisiones.
+## 🛠️ Actividades Críticas
 
----
+### Primera Misión: Solución de Hardware (Uso de Excel)
+Abre **Excel** y crea un archivo llamado `Solucion_Lentitud`.
+1. Para solucionar la lentitud, sabes que necesitas agregar más "Escritorio de trabajo" y cambiar el "Cajón del Archivo".
+2. Crea una lista de compras que incluya la cantidad y precio para repuestos de las 3 máquinas:
+   * 3 Unidades de Estado Sólido (SSD) de 500GB.
+   * 3 Memorias RAM DDR4 de 8GB.
+3. Multiplica en una celda el Precio por la Cantidad para saber el total por cada repuesto y aplica una viñeta monetaria (símbolo de $).
+4. Selecciona la tabla y genera un **Gráfico de Barras** simple para comparar cuál repuesto (SSD o RAM) resulta ser más caro en conjunto.
 
-## 📈 Fase 2: Dashboard Interactivo
+### Segunda Misión: Comunicación de Software (Uso de Word)
+Abre **Word** y redacta un **"Memorando Interno"**.
+1. Escribe en la parte superior: `De: Departamento de TI | Para: Todo el Personal | Asunto: Actualización de Computadoras`.
+2. Redacta 2 párrafos de forma muy profesional informando que este viernes se realizarán mejoras de velocidad a los equipos instalando Hardware nuevo (SSD y RAM).
+3. Añade que por seguridad, se borrarán todos los programas antiguos y se instalará nuevo **Software**, específicamente instalando nuevamente Microsoft Office y una herramienta de Antivirus.
+4. Aplica "Justificación" de texto y dale un color azul oscuro al Asunto para que resalte. Guarda el archivo como `Memorando.docx`.
 
-En una hoja nueva llamada "DASHBOARD" (sin celdas visibles, fondo gris profesional), construya:
+### Misión Final: Entrega Profesional (Uso del Sistema Operativo)
+1. En tu escritorio, crea una nueva carpeta llamada `Proyecto_Renovacion_TI`.
+2. Mueve adentro tus dos archivos: `Solucion_Lentitud.xlsx` y `Memorando.docx`.
+3. Haz clic derecho sobre la carpeta y busca la opción de **"Comprimir en archivo ZIP"** o "Añadir al archivo...".
 
-1.  **Tablas Dinámicas Vinculadas:**
-    *   Total Cartera por Región.
-    *   Top 5 Clientes en Mora (Filtro de Top 10).
-    *   Tendencia de Recaudo Mensual (Línea de tiempo).
-
-2.  **Slicers (Segmentación de Datos):**
-    *   Inserte botones para filtrar todo el reporte por: "Año", "Asesor" y "Tipo de Producto".
-
----
-
-## 🤖 Fase 3: Automatización VBA (Macro)
-
-La gerencia necesita un botón para exportar el reporte a PDF y limpiar los filtros.
-
-1.  **Grabar Macro:** Grabe la acción de limpiar todos los filtros de los Slicers.
-2.  **Edición de Código (VBA):**
-    *   Entre al editor de VBA (Alt+F11).
-    *   Modifique el código grabado para agregar un `MsgBox` al final que diga: "Reporte reiniciado exitosamente".
-    *   Agregue una línea de código para que seleccione la celda A1 automáticamente al finalizar.
-
----
-
-## ✉️ Fase 4: Integración Word-Excel (Mail Merge)
-
-Se deben enviar cartas físicas a los clientes en estado "Jurídico".
-
-1.  En Excel, filtre la base de datos para mostrar solo clientes "Jurídico" y copie esos datos a una nueva hoja llamada "Base_Cobros".
-2.  En Word, redacte una "Carta de Notificación Pre-Legal".
-3.  Utilice la herramienta **Correspondencia** para vincular el Excel.
-4.  Inserte los campos combinados: `<<Nombre Cliente>>`, `<<Deuda Total>>`, `<<Días Mora>>`.
-5.  Genere el documento final ("Finalizar y Combinar") creando un archivo nuevo con todas las cartas listas para imprimir.
-
----
-
-## ✅ Rúbrica de Evaluación
-
-*   **Excel (40%):** Funciones anidadas correctas y Dashboard funcional con Slicers conectados a todas las gráficas.
-*   **VBA (30%):** El código no es solo grabado; muestra evidencia de edición manual (MsgBox, limpieza de variables).
-*   **Integración (30%):** La combinación de correspondencia funciona y los campos coinciden con la base de datos filtrada.
-*   **Bonus (+0.5):** Si el Dashboard incluye un gráfico de Mapa (Excel Maps) funcional.
+## 💡 Entregable Final
+Debes tener como resultado final la carpeta comprimida `Proyecto_Renovacion_TI.zip` la cual contendrá tanto la documentación en Word como el cálculo de piezas en Excel.

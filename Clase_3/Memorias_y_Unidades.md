@@ -2,81 +2,93 @@
 
 La eficiencia de un sistema informático no se mide solo por la velocidad de procesamiento, sino por la velocidad y fiabilidad con la que puede acceder a los datos. Esta unidad explora la complejidad del subsistema de memoria.
 
-## 1. La Jerarquía de Memoria del Sistema
+## 1. Tipos de Memoria: RAM vs ROM
 
-La memoria no es un bloque monolítico; es una pirámide jerárquica diseñada para minimizar la latencia (retraso) entre la CPU y los datos.
+### 1.1 Memoria RAM (Random Access Memory)
+Es la memoria de trabajo temporal.
+*   **Analogía:** Una mesa de trabajo. Mientras más grande sea la mesa (8GB, 16GB, 32GB), más libros (programas) puedes tener abiertos simultáneamente sin que se caigan al suelo.
+*   **Volátil:** Se borra al apagar el equipo.
 
-### Nivel 0: Registros del Procesador
-Almacenamiento microscópico dentro de los núcleos de la CPU. Son los datos que se están operando *en este ciclo de reloj*.
-*   **Velocidad:** Instantánea (mismo ciclo de reloj).
-*   **Capacidad:** Menos de 1 KB.
+### 1.2 Memoria ROM (Read Only Memory)
+Es la memoria de solo lectura que contiene las instrucciones de inicio vitales.
+*   **Analogía:** El "instinto de supervivencia" del computador. Es lo que sabe "al nacer" (BIOS/UEFI) antes de aprender nada (Instalar Windows). Permite que el equipo reconozca el teclado y el disco duro para arrancar.
+*   **No Volátil:** No se borra sin electricidad.
+
+---
+
+## 2. La Jerarquía de Memoria del Sistema
+
+La memoria no es un bloque monolítico; es una pirámide jerárquica diseñada para minimizar la latencia.
+
+### Nivel 0: Registros del Procesador (~1 KB)
+Datos inmediatos dentro de la CPU.
 
 ### Nivel 1, 2 y 3: Memoria Caché (SRAM)
-Memoria Estática de Acceso Aleatorio. Es extremadamente rápida y costosa.
-*   **L1:** Privada por núcleo. Divide instrucciones y datos.
-*   **L2:** Privada por núcleo, más grande pero ligeramente más lenta.
-*   **L3:** Compartida entre todos los núcleos. Sirve para sincronizar datos entre hilos.
+Memoria Estática ultra-rápida. L1, L2 y L3 ayudan a que el procesador no tenga que esperar a la RAM lenta.
 
 ### Nivel 4: Memoria Principal (DRAM)
-Memoria Dinámica. Aquí residen los programas activos.
-*   **DDR (Double Data Rate):** Transfiere datos tanto en la subida como en la bajada del ciclo de reloj, duplicando el ancho de banda efectivo.
-*   **Timings y Latencia CAS (CL):** No solo importa la frecuencia (ej: 3200 MHz). La Latencia CAS (CL16, CL18) indica cuántos ciclos de reloj tarda la RAM en responder a una solicitud de la CPU. Una menor latencia es mejor.
-    *   *Fórmula real de latencia (ns):* (CL / Frecuencia) * 2000.
+Aquí residen los programas activos. Se clasifica por generaciones (DDR3, DDR4, DDR5), cada una más rápida y eficiente energéticamente que la anterior. No son compatibles físicamente entre sí (la muesca cambia).
 
 ---
 
-## 2. Tecnologías de Protección y Rendimiento
+## 3. Unidades de Medida y Conversión
 
-### 2.1 ECC (Error Correcting Code)
-Memoria crítica para servidores y estaciones de trabajo científicas. Posee un chip adicional que detecta y corrige errores de bit (Bit-flip) causados por radiación cósmica o interferencia magnética. Un solo bit errado en un banco podría corromper una transacción financiera millonaria.
+Para entender el almacenamiento, debemos hablar el lenguaje de las máquinas.
 
-### 2.2 Dual Channel / Quad Channel
-Tecnología que duplica (o cuadruplica) el ancho de banda teórico al acceder a dos módulos de memoria simultáneamente. Para activarlo, los módulos deben instalarse en las ranuras correctas (generalmente A2 y B2) y ser idénticos en capacidad y velocidad.
+### 3.1 El Bit y el Byte
+*   **Bit (b):** La unidad mínima (0 o 1). Un interruptor encendido o apagado.
+*   **Byte (B):** 8 Bits. Equivale aproximadamente a una letra o carácter.
 
----
+### 3.2 La Regla del 1024
+En informática, usamos potencias de 2 ($2^{10} = 1024$).
+*   1 **Kilobyte (KB)** = 1024 Bytes (Una página de texto).
+*   1 **Megabyte (MB)** = 1024 KB (Una canción MP3).
+*   1 **Gigabyte (GB)** = 1024 MB (Una película HD).
+*   1 **Terabyte (TB)** = 1024 GB (Un disco duro moderno).
 
-## 3. Arquitectura de Almacenamiento Masivo
+**Truco de Conversión:**
+*   Para bajar (de GB a MB): **Multiplicar** por 1024.
+*   Para subir (de MB a GB): **Dividir** por 1024.
 
-### 3.1 RAID (Redundant Array of Independent Disks)
-Tecnología de virtualización de almacenamiento que combina múltiples discos físicos en una unidad lógica para mejorar redundancia, rendimiento o ambos.
-
-*   **RAID 0 (Striping):** Suma la velocidad y capacidad de dos discos. Los datos se dividen entre ambos.
-    *   *Ventaja:* Doble velocidad de lectura/escritura.
-    *   *Riesgo Crítico:* Si falla un solo disco, se pierde TODA la información del arreglo. Indispensable tener backup externo.
-*   **RAID 1 (Mirroring):** Crea un espejo exacto de los datos en dos discos.
-    *   *Ventaja:* Alta redundancia. Si falla un disco, el sistema sigue funcionando.
-    *   *Desventaja:* Se desperdicia el 50% de la capacidad total.
-*   **RAID 5:** Requiere mínimo 3 discos. Usa paridad distribuida. Permite que falle un disco sin perder datos, pero la escritura es más lenta debido al cálculo de paridad.
-*   **RAID 10 (1+0):** Un híbrido que ofrece la velocidad de RAID 0 y la seguridad de RAID 1. Requiere mínimo 4 discos. Es costoso pero ideal para bases de datos empresariales.
-
----
-
-## 4. Sistemas de Archivos (File Systems)
-
-Es la estructura lógica que el Sistema Operativo usa para organizar los datos en el disco. Sin un sistema de archivos, el disco es solo un mar de bits sin sentido.
-
-### Windows
-*   **NTFS (New Technology File System):** El estándar moderno. Soporta permisos de seguridad (ACL), archivos mayores a 4GB, compresión y encriptación.
-*   **ExFAT:** Optimizado para memorias USB/SD. Compatible con Windows y Mac. Soporta archivos grandes pero no tiene la seguridad de NTFS.
-*   **FAT32:** Obsoleto pero universal. No permite archivos de más de 4GB.
-
-### Linux / Unix
-*   **EXT4 (Fourth Extended Filesystem):** El estándar en la mayoría de distribuciones Linux. Robusto y reduce la fragmentación.
-*   **Btrfs / ZFS:** Sistemas de nueva generación con "Self-healing" (autocuración) y snapshots nativos. Usados en servidores NAS.
-
-### macOS
-*   **APFS (Apple File System):** Optimizado para SSDs y cifrado nativo.
+### 3.3 Velocidad de Procesamiento (Hertz)
+Los Hertz (Hz) miden la frecuencia de reloj, o los "latidos del corazón" del procesador.
+*   **1 Hertz:** Un ciclo por segundo.
+*   **1 Megahertz (MHz):** Un millón de ciclos por segundo.
+*   **1 Gigahertz (GHz):** Mil millones de ciclos por segundo.
+Un CPU de 3.5 GHz late 3,500,000,000 veces cada segundo.
 
 ---
 
-## 5. Cálculo Binario y Hexadecimal
+## 4. Arquitectura de Almacenamiento Masivo
 
-El técnico debe entender cómo la máquina representa los datos internamente.
+### 4.1 RAID (Redundant Array of Independent Disks)
+*   **RAID 0:** Suma velocidad (Striping). Peligroso si falla un disco.
+*   **RAID 1:** Espejo (Mirroring). Seguridad total, costoso.
+*   **RAID 5:** Balance entre seguridad y costo.
 
-*   **Binario (Base 2):** 0 y 1.
-*   **Decimal (Base 10):** 0 al 9.
-*   **Hexadecimal (Base 16):** 0-9 y A-F. Se usa para direcciones de memoria y códigos de error porque compacta la información binaria (1 dígito hex = 4 bits).
+## 5. Sistemas de Archivos (File Systems)
+La estructura lógica del disco.
+*   **Windows:** NTFS (Seguro), ExFAT (Compatible).
+*   **Linux:** EXT4.
+*   **Mac:** APFS.
 
-**Conversión Práctica:**
-Un byte (8 bits) puede ir de 00000000 (0) a 11111111 (255).
-En Hexadecimal, esto va de 00 a FF. Por eso los colores RGB en diseño web van de #000000 (Negro) a #FFFFFF (Blanco).
+---
+
+## 6. Ofimática Básica: Microsoft PowerPoint
+
+El objetivo de una presentación es **apoyar** al orador, no reemplazarlo.
+
+### 6.1 Regla 10-20-30 (Guy Kawasaki)
+*   **10 deapositivas:** No aburras a la audiencia.
+*   **20 minutos:** Deja tiempo para preguntas.
+*   **30 puntos de fuente:** Si la letra es pequeña, la gente lee en lugar de escucharte.
+
+### 6.2 Elementos Visuales
+*   **Imágenes:** "Una imagen vale más que mil palabras". Usa imágenes de alta calidad, no pixeladas.
+*   **SmartArt:** Convierte listas de viñetas aburridas en diagramas de procesos o jerarquías visuales atractivas.
+
+### 6.3 Transiciones y Animaciones
+Úsalas con moderación.
+*   **Transición:** Efecto al cambiar de diapositiva (Ej: Desvanecer).
+*   **Animación:** Efecto dentro de la diapositiva (Ej: Que aparezca un texto).
+*   *Consejo:* Evita efectos mareantes o ruidosos. La sobriedad comunica profesionalismo.

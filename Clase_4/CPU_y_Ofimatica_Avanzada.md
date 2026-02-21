@@ -3,79 +3,73 @@
 Esta unidad es el puente entre la ingeniería de hardware pura y la aplicación práctica en el mundo de los negocios.
 
 ## 1. Arquitectura Interna del Microprocesador (CPU)
+La CPU es el **Director de Orquesta**. No toca todos los instrumentos, pero da las órdenes precisas a cada músico (memoria, disco, video) para que la sinfonía (el sistema) funcione armónicamente.
 
-La CPU es un circuito integrado de complejidad inimaginable (miles de millones de transistores en nanómetros). Para entenderla, debemos mirar dentro de sus bloques funcionales.
-
-### 1.1 Unidad Aritmético Lógica (ALU)
-Es la calculadora real del procesador. Realiza operaciones matemáticas básicas (suma, resta, multiplicación) y lógicas (AND, OR, NOT, XOR). Todo lo que haces en la computadora, desde jugar hasta escribir un correo, se descompone en millones de estas operaciones simples.
-
-### 1.2 Unidad de Control (CU)
-Es el "Director de Tráfico". No procesa datos, sino que dirige el flujo de información. Decide qué datos van a la ALU, cuáles van a memoria y cuáles a los periféricos. Decodifica las instrucciones del programa y genera las señales de control para el resto de la CPU.
-
-### 1.3 Registros
-Son pequeñas celdas de memoria de ultra-alta velocidad (aún más rápidas que la Caché L1). Almacenan temporalmente los operandos y resultados de la ALU.
-*   *Ejemplo:* Si sumas 5 + 3, el 5 se guarda en un registro, el 3 en otro, y el resultado 8 en un tercer registro acumulador.
-
-### 1.4 Conjuntos de Instrucciones: CISC vs RISC
-La filosofía de diseño del procesador define su eficiencia.
-*   **CISC (Complex Instruction Set Computing):** (Ej: Intel x86, AMD64). Usa instrucciones complejas que pueden realizar múltiples operaciones en un solo ciclo. Potente pero consume más energía. Dominante en PCs y Servidores.
-*   **RISC (Reduced Instruction Set Computing):** (Ej: ARM en celulares, Apple Silicon M1/M2/M3). Usa instrucciones muy simples y optimizadas. Requiere más código para hacer lo mismo, pero es extremadamente eficiente energéticamente. Dominante en móviles y dispositivos IoT.
+### 1.1 Componentes Internos
+*   **ALU:** Calculadora matemática.
+*   **CU:** Unidad de Control (Director de tráfico).
+*   **Registros:** Memoria ultra-rápida interna.
 
 ---
 
-## 2. Microsoft Excel: Lógica y Análisis de Datos (Data Analytics)
-
-En un entorno corporativo, Excel se utiliza para limpiar, transformar y visualizar datos.
-
-### 2.1 Funciones Lógicas Avanzadas
-No basta con `SUMA` o `PROMEDIO`. El análisis requiere lógica condicional.
-*   **SI Anidado (Nested IF):** Evaluar múltiples condiciones en cadena.
-    *   `=SI(Venta>1000, "Bono Alto", SI(Venta>500, "Bono Medio", "Sin Bono"))`
-*   **Y / O (AND / OR):** Conectores lógicos para evaluar varios criterios simultáneos.
-    *   `=SI(Y(Venta>1000; Asistencia="Perfecta"); "Empleado del Mes"; "")`
-*   **BUSCARX (XLOOKUP):** La evolución moderna de BUSCARV. Permite buscar en cualquier dirección, devolver matrices y manejar errores sin funciones adicionales.
-
-### 2.2 Tablas Dinámicas (Pivot Tables)
-Son herramientas de resumen multidimensional. Permiten "pivotar" (girar) los ejes de análisis.
-*   *Ejemplo:* Convertir una lista plana de 50.000 ventas en una matriz que muestre Ventas por Región (Filas), por Categoría de Producto (Columnas) y filtrado por Año.
-*   *Campos Calculados:* Crear nuevas métricas dentro de la tabla dinámica sin alterar la base de datos original (Ej: Calcular el Ticket Promedio = Ventas / Cantidad Transacciones).
+## 2. Software Utilitario y Mantenimiento
+No solo existe el sistema operativo y Office. El software utilitario son las herramientas del "conserje" digital.
+*   **Compresores:** (WinRAR, 7-Zip). Reducen el tamaño de archivos para envío.
+*   **Seguridad:** Antivirus y Firewalls.
+*   **Optimización:** (CCleaner). Limpian archivos basura y registros obsoletos.
+*   **Diagnóstico:** (CPU-Z, CrystalDiskInfo). Verifican la salud del hardware.
 
 ---
 
-## 3. Automatización con Macros y VBA
+## 3. Microsoft Word: Documentación Profesional
 
-Cuando una tarea se repite más de 3 veces, debe automatizarse.
+### 3.1 Tips "Pro" de Formato
+Un documento profesional se distingue por el cumplimiento de normas.
+*   **Normas APA / ICONTEC:** Reglas estándar para márgenes, citas y bibliografía. Usar la pestaña "Referencias" de Word automatiza esto.
+*   **Saltos de Sección:** Permiten tener páginas verticales y horizontales en el mismo documento.
+*   **Combinación de Correspondencia:** Generación masiva de documentos personalizados desde una base de datos.
 
-### 3.1 La Grabadora de Macros
-Convierte tus acciones (clics, tecleo) en código VBA automáticamente. Es el primer paso para la automatización.
-*   **Limitación:** Es rígida. Si los datos cambian de posición, la macro grabada fallará.
-
-### 3.2 Visual Basic for Applications (VBA)
-Es el lenguaje de programación detrás de Office. Permite crear lógica compleja que la grabadora no puede.
-*   **Variables:** Almacenar valores temporales.
-*   **Bucles (For / Loop):** Repetir una acción 1000 veces en segundos.
-*   **InputBox / MsgBox:** Interactuar con el usuario pidiendo datos o mostrando alertas.
-
-```vba
-Sub SaludoCorporativo()
-    Dim Nombre As String
-    Nombre = InputBox("Ingrese su nombre:")
-    If Nombre <> "" Then
-        MsgBox "Bienvenido al Sistema, " & Nombre, vbInformation
-    Else
-        MsgBox "Error: Nombre requerido", vbCritical
-    End If
-End Sub
-```
+### 3.2 Seguridad Documental
+Proteger la información sensible es crítico.
+*   **Cifrado con Contraseña:** Archivo -> Información -> Proteger Documento -> Cifrar con contraseña.
+*   **Control de Cambios:** Permite ver quién editó qué parte del documento, esencial para trabajo colaborativo.
 
 ---
 
-## 4. Microsoft Word: Documentación Técnica Estructurada
+## 4. Microsoft Excel: Inteligencia de Datos
 
-### 4.1 Secciones y Saltos
-Un documento profesional no es un flujo continuo. Las "Secciones" permiten tener partes del documento con configuraciones independientes.
-*   *Caso de Uso:* Tener la página 1 en Vertical (Portada), la página 2 en Horizontal (Tabla ancha) y la página 3 en Vertical de nuevo. Esto es imposible sin Saltos de Sección.
+### 4.1 Estructura Visual
+*   **Celda:** La unidad mínima (Intersección de Fila y Columna).
+*   **Rango:** Conjunto de celdas seleccionadas.
 
-### 4.2 Combinación de Correspondencia (Mail Merge)
-La integración entre Excel (Base de Datos) y Word (Plantilla).
-Permite generar 500 cartas personalizadas o 500 certificados de asistencia en PDF en minutos, tomando los nombres y cédulas desde una lista de Excel.
+### 4.2 Fórmulas vs Funciones
+*   **Fórmula:** Ecuación manual escrita por el usuario. Ej: `=A1 + B1`.
+*   **Función:** Algoritmo predefinido de Excel. Ej: `=SUMA(A1:B1)`.
+
+### 4.3 Filtros y Organización
+Para manejar grandes volúmenes de datos donde el ojo humano falla.
+*   **Filtros Avanzados:** Ocultar lo irrelevante.
+*   **Ordenamiento:** A-Z, Z-A, numérico.
+*   **Formato Condicional:** Resaltar visualmente patrones (ej: Números rojos para saldos negativos).
+
+### 4.4 Macros y Automatización
+Automatización de tareas repetitivas mediante grabación de pasos o código VBA. Si lo haces más de 3 veces al día, ¡automatízalo!
+
+---
+
+## 5. Ofimática en la Nube (Cloud Computing)
+
+La oficina moderna no está en un edificio, está en Internet.
+
+### 5.1 Almacenamiento y Sincronización
+Servicios como **Google Drive** o **OneDrive** permiten:
+*   **Acceso Universal:** Ver tus archivos desde el celular, la tablet o el PC de la oficina.
+*   **Backup Automático:** Si tu PC se daña, tus archivos siguen seguros en la nube.
+
+### 5.2 Trabajo Colaborativo (Co-autoría)
+Ya no se envían archivos adjuntos por correo ("Final_v2_Corregido.docx").
+*   **Compartir:** Enviar un enlace (Link) con permisos de "Editor" o "Lector".
+*   **Edición en Tiempo Real:** Varias personas escriben en el mismo documento simultáneamente. Ves el cursor de tus compañeros moverse en vivo.
+
+### 5.3 Historial de Versiones
+El "Control Z" definitivo. Las plataformas en la nube guardan versiones anteriores del archivo automáticamente. Si alguien borra todo por error, puedes "retroceder en el tiempo" y restaurar la versión de hace una hora o un día.

@@ -23,10 +23,16 @@ La evolución del cómputo no fue lineal, sino exponencial.
 *   **1945 - Arquitectura de Von Neumann:** John von Neumann describe la arquitectura que usan casi todas las computadoras modernas: una unidad de procesamiento y una memoria donde se almacenan *tanto* los datos como las instrucciones del programa. Antes de esto, reprogramar una computadora implicaba recablear físicamente sus circuitos.
 *   **1947 - El Transistor:** Inventado en los Laboratorios Bell. Reemplazó a los voluminosos y calientes tubos de vacío, permitiendo la miniaturización y fiabilidad electrónica.
 *   **1971 - Intel 4004:** El primer microprocesador en un solo chip. Marcó el inicio de la era de la Computación Personal (PC).
+*   **Actualidad - Inteligencia Artificial:** Pasamos de procesar datos a procesar conocimiento. Las redes neuronales y el aprendizaje automático marcan la nueva era post-silicio.
 
 ---
 
-## 3. Hardware y Software: Definiciones Técnicas
+## 3. Hardware y Software: La Simbiosis Perfecta
+
+Una computadora es una unidad funcional compuesta por dos dimensiones inseparables.
+
+> **Analogía Fundamental:**
+> Un auto de Fórmula 1 (**Hardware**) sin un piloto experto (**Software**) es solo un trozo costoso de metal y fibra de carbono. El hardware proporciona la potencia bruta, pero el software proporciona la inteligencia y el control para usar esa potencia.
 
 ### 3.1 Hardware (Infraestructura Física)
 Se refiere a la totalidad de componentes físicos del sistema. Se clasifica en:
@@ -57,19 +63,39 @@ Es el conjunto de instrucciones codificadas que controlan el funcionamiento del 
 
 Más allá de "Laptop vs Escritorio", la industria clasifica los equipos por su capacidad de cómputo (FLOPS - Operaciones de Coma Flotante por Segundo).
 
-1.  **Supercomputadoras:**
-    *   Sistemas de alto rendimiento (HPC) diseñados para cálculos científicos masivos (clima, física nuclear, modelado genético). No usan un solo procesador, sino miles trabajando en paralelo (Clústers).
-    *   *Ejemplo:* Frontier, Fugaku.
+1.  **Supercomputadoras:** Sistemas de alto rendimiento (HPC) para cálculos científicos masivos.
+2.  **Mainframes:** Computadoras centrales para grandes volúmenes de transacciones (Banca).
+3.  **Workstations:** PCs de escritorio con hardware de grado empresarial para diseño y renderizado.
+4.  **Computadoras Personales (PC):** Equipos de propósito general (Desktops, Laptops).
+5.  **Microcontroladores / Sistemas Embebidos:** Pequeñas computadoras integradas en dispositivos cotidianos (IoT).
 
-2.  **Mainframes:**
-    *   Computadoras centrales diseñadas para procesar millones de transacciones simultáneas con una fiabilidad del 99.999%. Priorizan el volumen de datos de entrada/salida (I/O) sobre el cálculo puro.
-    *   *Uso:* Banca, Aerolíneas, Censos gubernamentales.
+---
 
-3.  **Workstations (Estaciones de Trabajo):**
-    *   PCs de escritorio con hardware de grado empresarial (Memoria ECC, CPUs Xeon/Threadripper, GPUs Quadro). Diseñadas para tareas críticas como renderizado 3D, edición de video 4K o análisis de ingeniería (CAD/CAM).
+## 5. Green IT: Responsabilidad Ambiental
 
-4.  **Computadoras Personales (PC):**
-    *   Equipos de propósito general para usuarios finales. Incluye Desktops, Laptops, Tablets y Smartphones (sí, tu teléfono es una computadora poderosa).
+El avance tecnológico genera un desafío ecológico masivo.
+*   **RAEE (Residuos de Aparatos Eléctricos y Electrónicos):** La "basura electrónica" contiene metales pesados (plomo, mercurio, cadmio) que contaminan el suelo y el agua si no se reciclan correctamente.
+*   **Componentes Degradables:** La industria avanza hacia el uso de bioplásticos y soldaduras libres de plomo (RoHS) para minimizar el impacto.
+*   **Eficiencia Energética:** El diseño moderno busca el máximo rendimiento por Watt consumido para reducir la huella de carbono de los centros de datos.
 
-5.  **Microcontroladores / Sistemas Embebidos:**
-    *   Pequeñas computadoras integradas dentro de otros dispositivos (Lavadoras, Semáforos, Autos, Sistemas de Alarma). Tienen recursos muy limitados y ejecutan una sola tarea específica en tiempo real.
+---
+
+## 6. Ofimática Básica: Microsoft Word (Fundamentos)
+
+El procesador de texto es la herramienta fundamental de la oficina moderna.
+
+### 6.1 La Interfaz: Cinta de Opciones (Ribbon)
+Microsoft Word organiza sus herramientas en pestañas lógicas:
+*   **Inicio:** Herramientas más usadas (Fuente, Párrafo, Estilos).
+*   **Insertar:** Para agregar elementos externos (Imágenes, Tablas, Gráficos).
+*   **Diseño/Disposición:** Configuración de la página (Márgenes, Orientación).
+
+### 6.2 Formato de Texto
+La legibilidad es clave.
+*   **Fuente:** Tipo de letra (Arial, Calibri). Títulos en 14pt-16pt, cuerpo en 11pt-12pt.
+*   **Negrita (Ctrl+N):** Para resaltar conceptos clave, no párrafos enteros.
+*   **Cursiva (Ctrl+K):** Para términos extranjeros o citas.
+
+### 6.3 Guardado Correcto
+*   **Guardar (Ctrl+G):** Mantiene el formato editable (.docx).
+*   **Exportar a PDF:** Crea un documento de "solo lectura" universal, ideal para enviar hojas de vida o cotizaciones finales.
